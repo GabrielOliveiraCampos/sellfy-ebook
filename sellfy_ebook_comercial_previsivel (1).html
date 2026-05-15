@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Comercial que Sangra Dinheiro — Sellfy Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:#FE4F18; --orange-light:#ff6b3a; --black:#0C0F12; --dark:#0f1215;
+    --dark2:#141820; --offwhite:#F1F1EC; --white:#FFFFFF; --gray:#7a8089;
+    --gray-light:#b8bcc4; --page-width:794px; --radius:10px; --radius-sm:6px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#1a1e22;font-family:'Poppins',sans-serif;color:var(--white);}
+  .download-bar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--black);border-bottom:2px solid var(--orange);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .download-bar span{font-size:10px;color:var(--gray);letter-spacing:0.2em;text-transform:uppercase;font-weight:500;}
+  .btn-download{background:var(--orange);color:#fff;border:none;padding:10px 28px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:var(--radius-sm);}
+  .btn-download:hover{background:var(--orange-light);}
+  .ebook{margin-top:52px;display:flex;flex-direction:column;align-items:center;padding:28px 16px 64px;gap:4px;}
+  .page{width:var(--page-width);min-height:1123px;background:var(--dark);position:relative;overflow:hidden;page-break-after:always;}
+
+  /* COVER */
+  .page-cover{background:var(--black);display:flex;flex-direction:column;justify-content:space-between;}
+  .cover-top-bar{padding:22px 52px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e2328;}
+  .cover-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);font-weight:500;}
+  .cover-logo-img{width:80px;border-radius:var(--radius-sm);}
+  .cover-body{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:52px 72px 40px;position:relative;}
+  .cover-tag{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;padding:6px 18px;margin-bottom:36px;border-radius:20px;}
+  .cover-title{font-size:70px;font-weight:900;line-height:0.92;text-transform:uppercase;color:var(--white);}
+  .cover-title .hl{color:var(--orange);display:block;}
+  .cover-rule{width:56px;height:3px;background:var(--orange);margin:28px auto;border-radius:2px;}
+  .cover-subtitle{font-size:13px;color:var(--gray-light);line-height:1.75;max-width:460px;font-weight:300;}
+  .cover-bottom{padding:22px 52px;border-top:1px solid #1e2328;display:flex;justify-content:space-between;align-items:center;}
+  .cover-author{font-size:11px;color:var(--gray);}
+  .cover-author strong{color:var(--offwhite);display:block;font-size:14px;font-weight:600;}
+  .cover-deco-tl{position:absolute;top:0;left:0;width:160px;height:160px;border-right:1px solid #1e2328;border-bottom:1px solid #1e2328;pointer-events:none;border-bottom-right-radius:var(--radius);}
+  .cover-deco-br{position:absolute;bottom:0;right:0;width:160px;height:160px;border-left:1px solid #1e2328;border-top:1px solid #1e2328;pointer-events:none;border-top-left-radius:var(--radius);}
+
+  /* SUMMARY */
+  .page-summary{padding:0;background:var(--black);display:flex;flex-direction:column;}
+  .summary-header{padding:52px 64px 28px;}
+  .section-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;font-weight:600;}
+  .summary-title{font-size:40px;font-weight:800;text-transform:uppercase;line-height:1;color:var(--white);}
+  .summary-list{flex:1;padding:0 64px 64px;}
+  .summary-item{display:flex;align-items:flex-start;gap:20px;padding:16px 0;border-bottom:1px solid #1a1f24;}
+  .summary-num{font-size:9px;letter-spacing:0.18em;color:var(--orange);min-width:24px;padding-top:3px;font-weight:600;}
+  .summary-chapter{font-size:15px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.15;}
+  .summary-desc{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.55;font-weight:300;}
+
+  /* CHAPTER OPENER */
+  .page-chapter-opener{background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px 64px;}
+  .chapter-num-bg{font-size:220px;font-weight:900;line-height:1;color:#141920;user-select:none;position:absolute;bottom:24px;right:16px;}
+  .chapter-tag{font-size:9px;letter-spacing:0.3em;color:var(--orange);text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+  .chapter-title-big{font-size:60px;font-weight:900;text-transform:uppercase;line-height:0.95;color:var(--white);}
+  .chapter-title-big .orange{color:var(--orange);}
+  .chapter-rule{width:52px;height:3px;background:var(--orange);margin:28px auto;border-radius:2px;}
+  .chapter-intro{font-size:13.5px;color:var(--gray-light);line-height:1.75;max-width:500px;font-weight:300;}
+
+  /* CONTENT */
+  .page-content{padding:48px 64px 72px;}
+  .page-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid #1e2328;margin-bottom:28px;}
+  .page-header-chapter{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--orange);font-weight:600;}
+  .page-header-title{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);}
+  .page-num{font-size:9px;color:var(--gray);font-weight:500;}
+  h2.sh{font-size:30px;font-weight:800;text-transform:uppercase;color:var(--white);line-height:1.05;margin-bottom:18px;}
+  h2.sh .o{color:var(--orange);}
+  h3.subh{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--orange);margin:24px 0 10px;letter-spacing:0.1em;}
+  p.bt{font-size:12.5px;line-height:1.8;color:#c0c5cc;margin-bottom:12px;font-weight:300;}
+  p.bt strong{color:var(--offwhite);font-weight:600;}
+  p.bt em{color:var(--orange-light);font-style:italic;}
+  .qb{border-left:3px solid var(--orange);padding:14px 20px;background:rgba(254,79,24,0.06);margin:20px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
+  .qb p{font-size:13.5px;font-style:italic;color:var(--white);line-height:1.65;font-weight:300;}
+  .qb span{display:block;margin-top:7px;font-size:9px;letter-spacing:0.18em;color:var(--orange);text-transform:uppercase;font-weight:600;}
+  .cta-box{background:#090c0f;border:1px solid var(--orange);padding:20px 24px;margin:22px 0;text-align:center;border-radius:var(--radius);}
+  .cta-box p{font-size:12px;color:var(--gray-light);line-height:1.6;margin-bottom:14px;font-weight:300;}
+  .cta-btn{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:11px 28px;text-decoration:none;border-radius:var(--radius-sm);}
+  .ei{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #191e23;}
+  .en{font-size:32px;font-weight:900;color:var(--orange);min-width:34px;line-height:1;}
+  .ec h4{font-size:13px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:4px;}
+  .ec p{font-size:11.5px;color:#999;line-height:1.6;font-weight:300;}
+  .ec .cor{margin-top:6px;font-size:11px;color:var(--orange-light);font-style:italic;font-weight:400;}
+  .pg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;}
+  .pc{background:#090c0f;border-top:2px solid var(--orange);padding:16px;border-radius:0 0 var(--radius-sm) var(--radius-sm);}
+  .pn{font-size:9px;letter-spacing:0.2em;color:var(--orange);margin-bottom:6px;font-weight:600;}
+  .pt{font-size:14px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:5px;}
+  .pd{font-size:11px;color:#888;line-height:1.55;font-weight:300;}
+  .sr{display:flex;gap:12px;margin:20px 0;}
+  .sb{flex:1;background:#090c0f;padding:18px 12px;text-align:center;border-bottom:2px solid var(--orange);border-radius:var(--radius-sm) var(--radius-sm) 0 0;}
+  .sn{font-size:44px;font-weight:900;color:var(--orange);line-height:1;}
+  .sl{font-size:10px;color:var(--gray);margin-top:5px;line-height:1.4;text-transform:uppercase;letter-spacing:0.04em;}
+  .sti{display:flex;gap:16px;margin-bottom:16px;}
+  .sic{width:34px;height:34px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0;margin-top:2px;border-radius:var(--radius-sm);}
+  .sib h4{font-size:12.5px;font-weight:700;text-transform:uppercase;color:var(--white);margin-bottom:3px;}
+  .sib p{font-size:11.5px;color:#999;line-height:1.55;font-weight:300;}
+  .dt{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+  .dt th{background:var(--orange);color:#fff;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:9px 14px;text-align:left;font-weight:700;}
+  .dt td{padding:9px 14px;border-bottom:1px solid #1a1f24;color:#aaa;vertical-align:top;font-weight:300;}
+  .dt tr:nth-child(even) td{background:#0a0d10;}
+  .scr{background:#090c0f;border-left:3px solid var(--orange);padding:16px 20px;margin:12px 0;font-size:12px;color:#ccc;line-height:1.7;font-style:italic;font-weight:300;border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
+  .scrl{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;font-style:normal;font-weight:700;}
+  .wb{background:rgba(254,79,24,0.07);border:1px solid rgba(254,79,24,0.25);padding:11px 15px;margin:11px 0;display:flex;gap:10px;align-items:flex-start;border-radius:var(--radius-sm);}
+  .wi{color:var(--orange);font-size:13px;flex-shrink:0;margin-top:1px;}
+  .wb p{font-size:11px;color:#bbb;line-height:1.5;font-weight:300;}
+  .wb strong{color:var(--orange);font-weight:600;}
+  .cl{list-style:none;margin:12px 0;}
+  .cl li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #181d22;font-size:12px;color:#aaa;line-height:1.5;font-weight:300;}
+  .cl li::before{content:'□';color:var(--orange);font-size:12px;flex-shrink:0;margin-top:1px;}
+  .ib{background:var(--dark2);border:1px solid #2a2f38;padding:16px 20px;border-radius:var(--radius);margin:16px 0;}
+  .ib .il{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:6px;}
+  .ib p{font-size:11.5px;color:#b0b5bc;line-height:1.65;font-weight:300;}
+  .mc-row{display:flex;gap:10px;margin:16px 0;}
+  .mc{flex:1;background:#090c0f;padding:14px;border-radius:var(--radius-sm);border-top:2px solid var(--orange);text-align:center;}
+  .mc .mct{font-size:11px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:3px;}
+  .mc .mcd{font-size:10px;color:#777;line-height:1.4;font-weight:300;}
+  .hr{background:var(--orange);padding:14px 20px;margin:18px 0;border-radius:var(--radius-sm);display:flex;align-items:center;gap:14px;}
+  .hr .hrn{font-size:34px;font-weight:900;color:#fff;line-height:1;min-width:56px;}
+  .hr .hrt{font-size:12px;color:rgba(255,255,255,0.9);line-height:1.5;font-weight:400;}
+  .hr .hrt strong{color:#fff;font-weight:700;}
+
+  /* CLOSING */
+  .page-closing{background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:56px 64px;}
+  .cq-item{padding:16px 0;border-bottom:1px solid #1a1f24;}
+  .cq-item p{font-size:18px;font-style:italic;color:var(--white);line-height:1.3;margin-bottom:4px;font-weight:400;}
+  .cq-item span{font-size:9px;color:var(--orange);letter-spacing:0.14em;text-transform:uppercase;font-weight:600;}
+  .final-cta{background:var(--orange);padding:28px 32px;margin-top:28px;text-align:center;width:100%;border-radius:var(--radius);}
+  .final-cta h3{font-size:28px;font-weight:900;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:10px;}
+  .final-cta p{font-size:12px;color:rgba(255,255,255,0.88);line-height:1.65;margin-bottom:16px;font-weight:300;}
+  .final-cta-btn{display:inline-block;background:#000;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:13px 36px;text-decoration:none;border-radius:var(--radius-sm);}
+  .pf{position:absolute;bottom:0;left:0;right:0;padding:13px 64px;border-top:1px solid #1a1f24;display:flex;justify-content:space-between;align-items:center;}
+  .pf span{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#333;font-weight:400;}
+  .fdot{width:3px;height:3px;background:var(--orange);border-radius:50%;}
+  @media print{
+    .download-bar{display:none!important;}
+    body{background:#000;margin:0;}
+    .ebook{margin-top:0;padding:0;gap:0;}
+    .page{width:210mm;min-height:297mm;page-break-after:always;page-break-inside:avoid;}
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="download-bar">
+  <span>Sellfy Group — Playbook Comercial</span>
+  <button class="btn-download" onclick="downloadPDF()" id="dlbtn">⬇ Baixar PDF</button>
+</div>
+<div class="ebook">
+
+<!-- PAGE 1: COVER -->
+<div class="page page-cover">
+  <div class="cover-top-bar">
+    <span class="cover-label">Playbook Comercial — 2026</span>
+    <img class="cover-logo-img" src="data:image/png;base64,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" alt="Sellfy Group">
+  </div>
+  <div class="cover-body">
+    <div class="cover-deco-tl"></div>
+    <div class="cover-deco-br"></div>
+    <div class="cover-tag">Material Exclusivo — Sellfy Group</div>
+    <div class="cover-title">O COMERCIAL<br>QUE <span class="hl">SANGRA</span> DINHEIRO</div>
+    <div class="cover-rule"></div>
+    <p class="cover-subtitle">Como prestadores de serviço estão perdendo faturamento por erros de processo que têm solução — e o que fazer para transformar seu comercial em uma operação previsível.</p>
+    <div style="display:flex;gap:20px;margin-top:32px;justify-content:center;">
+      <div style="text-align:center;padding:16px 20px;background:#090c0f;border-radius:var(--radius);border-bottom:2px solid var(--orange);min-width:100px;">
+        <div style="font-size:30px;font-weight:900;color:var(--orange);">40%</div>
+        <div style="font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">taxa de no-show<br>sem processo</div>
+      </div>
+      <div style="text-align:center;padding:16px 20px;background:#090c0f;border-radius:var(--radius);border-bottom:2px solid var(--orange);min-width:100px;">
+        <div style="font-size:30px;font-weight:900;color:var(--orange);">7</div>
+        <div style="font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">erros que destroem<br>o comercial</div>
+      </div>
+      <div style="text-align:center;padding:16px 20px;background:#090c0f;border-radius:var(--radius);border-bottom:2px solid var(--orange);min-width:100px;">
+        <div style="font-size:30px;font-weight:900;color:var(--orange);">8</div>
+        <div style="font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">semanas para um<br>comercial previsível</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-author"><strong>Bruno Fraga</strong>Fundador — Sellfy Group</div>
+    <span style="font-size:9px;letter-spacing:0.2em;color:#333;text-transform:uppercase;">sellfy.com.br</span>
+  </div>
+</div>
+
+<!-- PAGE 2: INTRO -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Sellfy Group</span><span class="page-header-title">Antes de Começar</span><span class="page-num">02</span></div>
+  <h2 class="sh">Antes de <span class="o">Começar</span></h2>
+  <p class="bt">Se você está com este material nas mãos, é porque já se cadastrou. Isso significa que você deu um passo que a maioria dos empresários não dá: <strong>reconheceu que existe um problema que precisa ser resolvido.</strong></p>
+  <p class="bt">Este ebook não é uma coleção de frases motivacionais. Não é um PDF cheio de teoria que vai parar numa pasta esquecida no seu computador.</p>
+  <div class="qb"><p>"É um mapa. Construído a partir de dezenas de operações comerciais que a Sellfy entrou, diagnosticou, reestruturou e acompanhou até atingir consistência e previsibilidade real."</p></div>
+  <p class="bt">Cada capítulo tem aplicação direta no seu dia a dia. Cada conceito veio de uma operação real. Cada erro listado foi encontrado em empresas reais — muitas delas parecidas com a sua. <strong>Leia com caneta na mão. Anote o que ressoa. Circule o que você reconhece.</strong></p>
+  <div class="mc-row">
+    <div class="mc"><div style="font-size:18px;margin-bottom:5px;">🎯</div><div class="mct">Aplicável</div><div class="mcd">Cada conceito tem uso direto no dia a dia comercial</div></div>
+    <div class="mc"><div style="font-size:18px;margin-bottom:5px;">📊</div><div class="mct">Baseado em dados</div><div class="mcd">Métricas e indicadores reais de operações reais</div></div>
+    <div class="mc"><div style="font-size:18px;margin-bottom:5px;">⚙️</div><div class="mct">Sistemático</div><div class="mcd">Processos que qualquer time pode implementar</div></div>
+    <div class="mc"><div style="font-size:18px;margin-bottom:5px;">🔁</div><div class="mct">Replicável</div><div class="mcd">Método que escala — não depende de talento individual</div></div>
+  </div>
+  <div class="ib"><div class="il">Como usar este material</div><p>Leia capítulo por capítulo. A cada erro que você reconhecer na sua operação, marque. Ao final, você terá um diagnóstico visual de onde seu comercial está sangrando — e um plano de ação claro para cada ponto identificado.</p></div>
+  <div class="hr"><div class="hrn">5×</div><div class="hrt"><strong>mais esforço</strong> é necessário para reativar um lead depois de um no-show do que para mantê-lo engajado desde o agendamento até a reunião acontecer de verdade.</div></div>
+  <div class="sr">
+    <div class="sb"><div class="sn">40%</div><div class="sl">taxa de no-show sem cadência estruturada</div></div>
+    <div class="sb"><div class="sn">7</div><div class="sl">erros silenciosos que destroem o comercial</div></div>
+    <div class="sb"><div class="sn">8</div><div class="sl">semanas para estruturar um comercial previsível</div></div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Playbook Comercial</span></div>
+</div>
+
+<!-- PAGE 3: SUMMARY -->
+<div class="page page-summary">
+  <div class="summary-header">
+    <div class="section-label">Conteúdo do Playbook</div>
+    <div class="summary-title">O que você<br>vai encontrar</div>
+  </div>
+  <div class="summary-list">
+    <div class="summary-item"><span class="summary-num">01</span><div><div class="summary-chapter">A Montanha-Russa que Ninguém Quer Admitir</div><div class="summary-desc">Os 3 sintomas que indicam que seu comercial está sangrando dinheiro todo mês sem que você perceba.</div></div></div>
+    <div class="summary-item"><span class="summary-num">02</span><div><div class="summary-chapter">Quem Está Por Trás Deste Material</div><div class="summary-desc">A história de Bruno Fraga, de onde veio a Sellfy e por que esse método funciona na prática — não apenas no papel.</div></div></div>
+    <div class="summary-item"><span class="summary-num">03</span><div><div class="summary-chapter">Os 7 Erros que Destroem o Seu Comercial</div><div class="summary-desc">Erros silenciosos que aparecem em toda operação — independente do segmento, tamanho ou experiência do gestor.</div></div></div>
+    <div class="summary-item"><span class="summary-num">04</span><div><div class="summary-chapter">A Anatomia de um Comercial Previsível</div><div class="summary-desc">ICP, funil estruturado, cadência de prospecção e ritos de gestão que sustentam resultados consistentes.</div></div></div>
+    <div class="summary-item"><span class="summary-num">05</span><div><div class="summary-chapter">O Sistema Anti No-Show</div><div class="summary-desc">As 5 etapas com scripts prontos para fazer o lead aparecer — do agendamento até o instante que entra na reunião.</div></div></div>
+    <div class="summary-item"><span class="summary-num">06</span><div><div class="summary-chapter">O Diagnóstico que Define Tudo</div><div class="summary-desc">Os 4 eixos de uma reunião que converte — e os 3 erros que sabotam o fechamento antes mesmo do pitch.</div></div></div>
+    <div class="summary-item"><span class="summary-num">07</span><div><div class="summary-chapter">Follow-up, Métricas e o Método Sellfy</div><div class="summary-desc">Como medir, corrigir e escalar. As 8 semanas que transformam uma operação do zero em sistema previsível.</div></div></div>
+  </div>
+  <div style="padding:0 64px 64px;">
+    <div class="ib"><div class="il">Para quem é este material</div><p>CEOs, fundadores, sócios e gestores comerciais de empresas de prestação de serviço que querem transformar um comercial imprevisível em um processo que gera resultado consistente — mês após mês, independente de quem está no time.</p></div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Sumário</span></div>
+</div>
+
+<!-- PAGE 4: CAP 1 OPENER -->
+<div class="page page-chapter-opener">
+  <div class="chapter-num-bg">01</div>
+  <div class="chapter-tag">Capítulo 01 de 07</div>
+  <div class="chapter-title-big">A Montanha-Russa<br>que <span class="orange">Ninguém</span><br>Quer Admitir</div>
+  <div class="chapter-rule"></div>
+  <p class="chapter-intro">Existe um padrão que se repete em praticamente todas as operações comerciais de prestadores de serviço. Você provavelmente está vivendo ele agora — e nem percebe.</p>
+  <div style="display:flex;gap:14px;margin-top:36px;justify-content:center;">
+    <div style="background:#0f1215;border:1px solid #1e2328;padding:16px 18px;border-radius:var(--radius);max-width:170px;text-align:center;"><div style="font-size:9px;color:var(--orange);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Semana 1</div><div style="font-size:11px;color:#888;font-weight:300;">Esperança. Agenda promissora. Leads chegando.</div></div>
+    <div style="background:#0f1215;border:1px solid #1e2328;padding:16px 18px;border-radius:var(--radius);max-width:170px;text-align:center;"><div style="font-size:9px;color:var(--orange);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Semana 2</div><div style="font-size:11px;color:#888;font-weight:300;">Primeiros sinais. Lead sumiu. Reunião não aconteceu.</div></div>
+    <div style="background:#0f1215;border:1px solid #1e2328;padding:16px 18px;border-radius:var(--radius);max-width:170px;text-align:center;"><div style="font-size:9px;color:var(--orange);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Semana 4</div><div style="font-size:11px;color:#888;font-weight:300;">Virada milagrosa ou mês abaixo. Busca por culpados.</div></div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 01</span></div>
+</div>
+
+<!-- PAGE 5: CAP 1 CONTENT -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 01</span><span class="page-header-title">A Montanha-Russa</span><span class="page-num">05</span></div>
+  <p class="bt">Nos primeiros dias do mês, existe esperança. A agenda parece promissora. Os leads estão chegando. Na segunda semana, os primeiros sinais. O lead que parecia quente sumiu. O follow-up que o vendedor disse que ia fazer nunca foi feito.</p>
+  <p class="bt">Na quarta semana: ou uma virada milagrosa — ou o mês fecha abaixo do esperado. <strong>E no dia 1 do mês seguinte, o ciclo recomeça exatamente do zero.</strong></p>
+  <div class="qb"><p>"Esse não é um problema de motivação, de geração, de mercado ou de azar. É um problema de sistema. Ou melhor: é a ausência de um."</p></div>
+  <h3 class="subh">Os 3 Sintomas que Indicam que Seu Comercial Está Sangrando</h3>
+  <div class="sti"><div class="sic">1</div><div class="sib"><h4>Seu faturamento depende de 1 ou 2 pessoas</h4><p>Quando o resultado do mês depende de quem "está com a cabeça boa", você não tem um time comercial — você tem uma dependência. Operações previsíveis não dependem de heróis, dependem de processo replicável.</p></div></div>
+  <div class="sti"><div class="sic">2</div><div class="sib"><h4>Você não consegue explicar por que um mês foi bom</h4><p>Se você não sabe explicar com dados o que fez um mês ser melhor que o outro, não vai conseguir repetir. E o que não pode ser repetido não pode ser escalado — independente de quanto esforço o time coloca.</p></div></div>
+  <div class="sti"><div class="sic">3</div><div class="sib"><h4>No-show destrói sua agenda semanalmente</h4><p>Reuniões marcadas que não acontecem destroem o pipeline, consomem o tempo do especialista e matam a previsibilidade de receita. Uma taxa acima de 20% já compromete o mês inteiro.</p></div></div>
+  <div class="ib"><div class="il">Por que isso acontece</div><p>Em 9 de cada 10 operações que a Sellfy entra, o problema não é gente má intencionada ou desmotivada. É gente comprometida jogando um jogo difícil dentro de um sistema bagunçado. E sistema bagunçado é algo que pode ser arrumado.</p></div>
+  <div class="cta-box"><p>Identificou algum desses sintomas? A Sellfy pode te mostrar exatamente onde sua operação está travando — em menos de 10 minutos, sem compromisso.</p><a class="cta-btn" href="https://tally.so/r/68QN9A" target="_blank">Quero Fazer Meu Diagnóstico →</a></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 01</span></div>
+</div>
+
+<!-- PAGE 6: CAP 2 OPENER -->
+<div class="page page-chapter-opener">
+  <div class="chapter-num-bg">02</div>
+  <div class="chapter-tag">Capítulo 02 de 07</div>
+  <div class="chapter-title-big">Quem Está<br><span class="orange">Por Trás</span><br>Deste Material</div>
+  <div class="chapter-rule"></div>
+  <p class="chapter-intro">Para entender o que a Sellfy faz, você precisa entender de onde ela veio — e por que o método funciona na prática, não apenas no papel.</p>
+  <div style="margin-top:36px;background:#090c0f;border:1px solid #1e2328;padding:20px 28px;border-radius:var(--radius);max-width:460px;text-align:left;">
+    <div style="font-size:9px;color:var(--orange);letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Bruno Fraga — Fundador</div>
+    <p style="font-size:12px;color:#999;line-height:1.65;font-weight:300;">"Eu não nasci gestor. Nasci vendedor num ambiente em que venda era sinônimo de improviso. Aprendi que resultado individual não compensa a ausência de sistema — e dediquei minha carreira inteira a construir esse sistema para outras operações."</p>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 02</span></div>
+</div>
+
+<!-- PAGE 7: STORY -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 02</span><span class="page-header-title">A História de Bruno Fraga</span><span class="page-num">07</span></div>
+  <h2 class="sh">A História de <span class="o">Bruno Fraga</span></h2>
+  <p class="bt">Bruno Fraga não nasceu gestor. Não veio de uma faculdade de administração com teoria embalada em diploma. <strong>Ele nasceu vendedor.</strong> Aos 16 anos, entrou no comercial de uma agência de marketing fundada por um amigo de escola. O "funil de vendas" era uma planilha de Excel mal feita, alimentada à mão com empresas tiradas do Google Maps.</p>
+  <table class="dt"><tr><th>Passo</th><th>A Realidade do Processo Comercial</th></tr><tr><td style="color:var(--orange);font-weight:700;">01</td><td>Abrir o Google Maps e escolher uma região da cidade</td></tr><tr><td style="color:var(--orange);font-weight:700;">02</td><td>Colocar na planilha todo mundo que parecia empresa</td></tr><tr><td style="color:var(--orange);font-weight:700;">03</td><td>Ligar. Ligar. Ligar. — sem SDR, BDR, closer ou hunter</td></tr><tr><td style="color:var(--orange);font-weight:700;">04</td><td>Quem ligava era o mesmo que fechava — tudo na mesma pessoa</td></tr></table>
+  <p class="bt">Com um único incentivo claro — <em>se eu vender, eu ganho</em> — Bruno chegava mais cedo, ficava mais tempo ao telefone e dava treinamentos para colegas sem nenhum título no crachá. <strong>Em seis meses, se tornou o melhor vendedor da equipe.</strong></p>
+  <div class="qb"><p>"Resultado individual não compensa a ausência de sistema. Eu performava. O time, não. E a empresa seguia em montanha-russa."</p><span>— Bruno Fraga</span></div>
+  <h3 class="subh">O Diploma que Faculdade Nenhuma Entrega</h3>
+  <p class="bt">A virada veio quando Bruno entrou em uma das maiores operações de marketing de performance do Brasil. Metas claras, cadências estruturadas, líderes que ensinavam, time inteiro jogando para ganhar — e ali tudo mudou.</p>
+  <div class="sr">
+    <div class="sb"><div class="sn">326</div><div class="sl">ligações em um único dia — recorde interno batido no 1º mês</div></div>
+    <div class="sb"><div class="sn">140</div><div class="sl">ligações diárias em média por meses consecutivos</div></div>
+    <div class="sb"><div class="sn">10</div><div class="sl">reuniões marcadas no mesmo dia do recorde histórico</div></div>
+  </div>
+  <p class="bt" style="color:#666;font-size:11px;">Essa fase entregou o diploma de viver uma operação de alta performance por dentro — o que nenhuma faculdade consegue ensinar.</p>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 02</span></div>
+</div>
+
+<!-- PAGE 8: SELLFY ORIGIN -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 02</span><span class="page-header-title">O Nascimento da Sellfy</span><span class="page-num">08</span></div>
+  <h3 class="subh">De Vendedor a Arquiteto de Operações</h3>
+  <p class="bt">Ao mesmo tempo que performava na linha de frente, Bruno começou a ser chamado por donos de empresas que queriam implementar aquela mentalidade nos seus times. O que antes eram conselhos rápidos virou método estruturado:</p>
+  <div class="pg" style="grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0;">
+    <div class="pc"><div class="pt" style="font-size:12px;">Diagnóstico</div><div class="pd">Mapeamento profundo da operação atual</div></div>
+    <div class="pc"><div class="pt" style="font-size:12px;">Processo</div><div class="pd">Reestruturação de todo o comercial</div></div>
+    <div class="pc"><div class="pt" style="font-size:12px;">Rotinas</div><div class="pd">Ritos de gestão instalados no calendário</div></div>
+    <div class="pc"><div class="pt" style="font-size:12px;">Treinamento</div><div class="pd">Desenvolvimento contínuo do time</div></div>
+    <div class="pc"><div class="pt" style="font-size:12px;">Indicadores</div><div class="pd">Métricas que apontam o gargalo real</div></div>
+    <div class="pc"><div class="pt" style="font-size:12px;">Resultado</div><div class="pd">Meta batida com consistência mensal</div></div>
+  </div>
+  <h3 class="subh">O Que é a Sellfy, de Verdade</h3>
+  <p class="bt">A Sellfy <strong>não é consultoria. Não é mentoria. Não é curso.</strong> A Sellfy é uma <strong>empresa de implementação comercial para prestadores de serviço.</strong> Entra na operação, estrutura o comercial e acompanha o time até o processo rodar com consistência — sem que você precise carregar isso sozinho.</p>
+  <div class="qb"><p>"Quando você coloca método, ritos de gestão e cultura de alta performance em cima de um time comum, você transforma vendedores em operadores de resultado previsível."</p><span>— A tese da Sellfy</span></div>
+  <div class="mc-row">
+    <div class="mc"><div class="mct">Não é consultoria</div><div class="mcd">Não entregamos relatório e vamos embora. Ficamos até funcionar de verdade.</div></div>
+    <div class="mc"><div class="mct">Não é mentoria</div><div class="mcd">Não ensinamos teoria. Implementamos processo dentro da sua operação real.</div></div>
+    <div class="mc"><div class="mct">É implementação</div><div class="mcd">Entramos, estruturamos, acompanhamos e garantimos a consistência.</div></div>
+  </div>
+  <div class="cta-box"><p>Quer entender como isso funcionaria especificamente na sua operação? Fala com a gente — sem enrolação.</p><a class="cta-btn" href="https://wa.me/5585899897730" target="_blank">Falar com a Sellfy no WhatsApp →</a></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 02</span></div>
+</div>
+
+<!-- PAGE 9: CAP 3 OPENER -->
+<div class="page page-chapter-opener">
+  <div class="chapter-num-bg">03</div>
+  <div class="chapter-tag">Capítulo 03 de 07</div>
+  <div class="chapter-title-big">Os 7 Erros<br>que <span class="orange">Destroem</span><br>o Seu Comercial</div>
+  <div class="chapter-rule"></div>
+  <p class="chapter-intro">Esses erros são silenciosos. Cada um corrói o resultado antes que qualquer estratégia tenha chance de funcionar. Você vai reconhecer mais de um.</p>
+  <div style="margin-top:28px;background:rgba(254,79,24,0.07);border:1px solid rgba(254,79,24,0.2);padding:18px 24px;border-radius:var(--radius);max-width:480px;">
+    <div style="font-size:9px;color:var(--orange);letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">⚠ Atenção</div>
+    <p style="font-size:12px;color:#bbb;line-height:1.65;font-weight:300;">Esses erros aparecem com frequência assustadora independente do segmento, tamanho da empresa ou nível de experiência do gestor. Se você identificar mais de 3, sua operação está deixando dinheiro na mesa todo mês — e nem percebe.</p>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 03</span></div>
+</div>
+
+<!-- PAGE 10: ERROS 1-4 -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 03</span><span class="page-header-title">Os 7 Erros — Parte 1</span><span class="page-num">10</span></div>
+  <div class="ei"><div class="en">01</div><div class="ec"><h4>Meta é número. Não é compromisso.</h4><p>O vendedor sabe quanto precisa vender, mas não sabe quantos contatos fazer, leads abordar, follow-ups rodar ou agendamentos gerar. Sem essa clareza, a meta vira nuvem cinza — só aparece na hora de levar bronca.</p><p class="cor">→ Correção: Meta de faturamento precisa ser destrinchada em atividades diárias concretas. Cada vendedor precisa saber, no início de cada semana, exatamente o que fazer para chegar no número.</p></div></div>
+  <div class="ei"><div class="en">02</div><div class="ec"><h4>Processo existe no papel. Não na operação.</h4><p>Lead entra por caminhos diferentes. Cada vendedor guia a negociação como acha melhor. Clientes esquecidos no funil. Propostas sem próximo passo. Você perde poder de correção — não há padrão para comparar.</p><p class="cor">→ Correção: O processo precisa ser documentado, treinado, vivido e auditado toda semana. Não basta existir no PPT, no Notion ou na cabeça do dono.</p></div></div>
+  <div class="ei"><div class="en">03</div><div class="ec"><h4>No-show virou parte da rotina.</h4><p>Reuniões que não acontecem destroem pipeline, consomem tempo do especialista, distorcem métricas e matam a previsibilidade. Uma taxa acima de 20% compromete o mês inteiro — mesmo que o restante da operação funcione bem.</p><p class="cor">→ Correção: No-show é falha de processo, não azar. Existe uma cadência que reduz isso de forma consistente e mensurável. (Detalhado no Capítulo 5)</p></div></div>
+  <div class="ei"><div class="en">04</div><div class="ec"><h4>Reunião de gestão vira terapia em grupo.</h4><p>O gestor marca reunião para falar de estratégia. O time desabafa sobre leads difíceis. O tempo passa, ninguém sai com decisão concreta. Na semana seguinte, os mesmos comportamentos se repetem sem qualquer mudança.</p><p class="cor">→ Correção: Cada reunião precisa de objetivo definido, dados na mesa, decisões concretas e responsáveis claros — definidos antes de começar.</p></div></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 03</span></div>
+</div>
+
+<!-- PAGE 11: ERROS 5-7 -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 03</span><span class="page-header-title">Os 7 Erros — Parte 2</span><span class="page-num">11</span></div>
+  <div class="ei"><div class="en">05</div><div class="ec"><h4>Follow-up é cobrança. Não é valor.</h4><p>"Oi, tudo bem? Só passando para ver se você teve alguma novidade." Isso não é follow-up — é lembrete de que você precisa vender. Quando o follow-up só cobra, o lead aprende a ignorar. Quando entrega valor, o lead espera a mensagem.</p><p class="cor">→ Correção: Cada ponto de contato precisa entregar algo novo — insight, dado relevante, case, pergunta que faz o lead pensar diferente sobre o próprio problema.</p></div></div>
+  <div class="ei"><div class="en">06</div><div class="ec"><h4>SDR e Closer sem papel claro.</h4><p>O mesmo vendedor prospecta, agenda, conduz o diagnóstico, faz a proposta e tenta fechar. Resultado: sempre no topo do funil sem energia para fechar, ou sempre no fechamento sem tempo para gerar novas oportunidades. O gargalo fica invisível.</p><p class="cor">→ Correção: SDR gera reuniões qualificadas. Closer conduz o diagnóstico e fecha. Papéis claros = métricas claras = gargalos visíveis = correção precisa e rápida.</p></div></div>
+  <div class="ei"><div class="en">07</div><div class="ec"><h4>Gestor não gere — apaga incêndio.</h4><p>O dono ou líder comercial está tão afogado em operação que gestão de pessoas, ritos, cultura e desenvolvimento do time viram luxo. Fica tudo no modo "quando sobrar tempo". Nunca sobra — e o time se sente sozinho, confuso e sem direção.</p><p class="cor">→ Correção: Blocos de tempo protegidos exclusivamente para gestão — não para trabalhar no negócio, mas para gerir o time e garantir que os ritos estão sendo executados sem exceção.</p></div></div>
+  <div class="hr"><div class="hrn">9/10</div><div class="hrt">Nas operações que a Sellfy entra, o problema <strong>não é o time.</strong> É gente comprometida jogando dentro de um sistema bagunçado. Sistema bagunçado tem solução estruturada.</div></div>
+  <div class="cta-box"><p>Você identificou mais de 3 desses erros? A Sellfy pode mapear onde exatamente sua operação está travando.</p><a class="cta-btn" href="https://tally.so/r/68QN9A" target="_blank">Quero Meu Diagnóstico Gratuito →</a></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 03</span></div>
+</div>
+
+<!-- PAGE 12: CAP 4 OPENER -->
+<div class="page page-chapter-opener">
+  <div class="chapter-num-bg">04</div>
+  <div class="chapter-tag">Capítulo 04 de 07</div>
+  <div class="chapter-title-big">A Anatomia de um<br>Comercial <span class="orange">Previsível</span></div>
+  <div class="chapter-rule"></div>
+  <p class="chapter-intro">Um comercial previsível não nasce de um vendedor excepcional. Nasce de um sistema bem montado, vivido com disciplina e auditado com frequência.</p>
+  <div style="display:flex;gap:12px;margin-top:32px;justify-content:center;">
+    <div style="text-align:center;background:#090c0f;padding:16px;border-radius:var(--radius);min-width:128px;border-top:2px solid var(--orange);"><div style="font-size:9px;color:var(--orange);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.1em;">Pilar 01</div><div style="font-size:13px;font-weight:700;color:#fff;">ICP</div><div style="font-size:10px;color:#666;margin-top:3px;font-weight:300;">Saber com quem falar</div></div>
+    <div style="text-align:center;background:#090c0f;padding:16px;border-radius:var(--radius);min-width:128px;border-top:2px solid var(--orange);"><div style="font-size:9px;color:var(--orange);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.1em;">Pilar 02</div><div style="font-size:13px;font-weight:700;color:#fff;">Funil</div><div style="font-size:10px;color:#666;margin-top:3px;font-weight:300;">Etapas e critérios claros</div></div>
+    <div style="text-align:center;background:#090c0f;padding:16px;border-radius:var(--radius);min-width:128px;border-top:2px solid var(--orange);"><div style="font-size:9px;color:var(--orange);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.1em;">Pilar 03</div><div style="font-size:13px;font-weight:700;color:#fff;">Cadência</div><div style="font-size:10px;color:#666;margin-top:3px;font-weight:300;">Ritmo de contato definido</div></div>
+    <div style="text-align:center;background:#090c0f;padding:16px;border-radius:var(--radius);min-width:128px;border-top:2px solid var(--orange);"><div style="font-size:9px;color:var(--orange);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.1em;">Pilar 04</div><div style="font-size:13px;font-weight:700;color:#fff;">Ritos</div><div style="font-size:10px;color:#666;margin-top:3px;font-weight:300;">Gestão que sustenta tudo</div></div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 04</span></div>
+</div>
+
+<!-- PAGE 13: 4 PILARES -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 04</span><span class="page-header-title">Os 4 Pilares</span><span class="page-num">13</span></div>
+  <h2 class="sh">Os 4 Pilares do <span class="o">Sistema</span></h2>
+  <div class="pg">
+    <div class="pc"><div class="pn">PILAR 01</div><div class="pt">ICP Definido</div><div class="pd">O perfil do cliente ideal: maior benefício do serviço, ticket certo, ciclo de venda que sua operação suporta e menor custo de atendimento. Sem ICP, você arremessa no escuro e o time qualifica qualquer um.</div></div>
+    <div class="pc"><div class="pn">PILAR 02</div><div class="pt">Funil Estruturado</div><div class="pd">Etapas claras com critério de entrada, ação do vendedor, critério de avanço e tempo máximo por etapa. O funil não é lista de leads — é o mapa vivo do processo comercial.</div></div>
+    <div class="pc"><div class="pn">PILAR 03</div><div class="pt">Cadência de Contato</div><div class="pd">Sequência estruturada desde o primeiro toque até qualificação ou descarte. Sem cadência, o vendedor decide na emoção — e o resultado é inconsistente, não auditável.</div></div>
+    <div class="pc"><div class="pn">PILAR 04</div><div class="pt">Ritos de Gestão</div><div class="pd">Encontros regulares no calendário que garantem que o sistema está sendo vivido — não apenas existindo. Sem ritos, o processo existe no papel, não na operação.</div></div>
+  </div>
+  <h3 class="subh">Os 3 Ritos que Não Podem Faltar</h3>
+  <table class="dt"><tr><th>Rito</th><th>Quando</th><th>Duração</th><th>Objetivo</th></tr><tr><td><strong>Daily Carnívoro</strong></td><td>Segunda-feira</td><td>15 min</td><td>Alinhar metas da semana e detectar gargalos antes de acontecerem</td></tr><tr><td><strong>Clínica de Call</strong></td><td>Quarta-feira</td><td>30 min</td><td>Ouvir 2-3 calls com feedback estruturado e aprendizado coletivo</td></tr><tr><td><strong>Pipeline Review</strong></td><td>Sexta-feira</td><td>30 min</td><td>Visibilidade real do funil e próximos passos claros para cada deal</td></tr></table>
+  <div class="qb"><p>"Rito sem consistência é burocracia. Rito com consistência é cultura. A diferença está em quem cobra a execução — e com que frequência."</p></div>
+  <div class="ib"><div class="il">Como definir seu ICP em 10 minutos</div><p>Olhe para os últimos 10 clientes que mais geraram resultado — em receita e facilidade de atendimento. Procure padrões: segmento, tamanho, cargo do decisor, dor principal na contratação, tempo de decisão e ticket médio. Esses padrões formam o raio-x do seu cliente ideal.</p></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 04</span></div>
+</div>
+
+<!-- PAGE 14: CAP 5 OPENER -->
+<div class="page page-chapter-opener">
+  <div class="chapter-num-bg">05</div>
+  <div class="chapter-tag">Capítulo 05 de 07</div>
+  <div class="chapter-title-big">O Sistema<br><span class="orange">Anti</span><br>No-Show</div>
+  <div class="chapter-rule"></div>
+  <p class="chapter-intro">Uma reunião que não acontece não é só um slot perdido. É energia desperdiçada, oportunidade destruída e previsibilidade que vai pelo ralo — em silêncio.</p>
+  <div style="display:flex;gap:20px;margin-top:32px;justify-content:center;">
+    <div style="background:#090c0f;border:1px solid #1e2328;padding:16px 20px;border-radius:var(--radius);text-align:center;min-width:120px;border-bottom:2px solid var(--orange);">
+      <div style="font-size:26px;font-weight:900;color:var(--orange);">40%</div>
+      <div style="font-size:9px;color:#777;text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;font-weight:400;">no-show médio<br>sem cadência</div>
+    </div>
+    <div style="background:#090c0f;border:1px solid #1e2328;padding:16px 20px;border-radius:var(--radius);text-align:center;min-width:120px;border-bottom:2px solid var(--orange);">
+      <div style="font-size:26px;font-weight:900;color:var(--orange);">&lt;10%</div>
+      <div style="font-size:9px;color:#777;text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;font-weight:400;">com cadência<br>Sellfy aplicada</div>
+    </div>
+    <div style="background:#090c0f;border:1px solid #1e2328;padding:16px 20px;border-radius:var(--radius);text-align:center;min-width:120px;border-bottom:2px solid var(--orange);">
+      <div style="font-size:26px;font-weight:900;color:var(--orange);">5min</div>
+      <div style="font-size:9px;color:#777;text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;font-weight:400;">janela de ouro<br>do resgate</div>
+    </div>
+    <div style="background:#090c0f;border:1px solid #1e2328;padding:16px 20px;border-radius:var(--radius);text-align:center;min-width:120px;border-bottom:2px solid var(--orange);">
+      <div style="font-size:26px;font-weight:900;color:var(--orange);">5×</div>
+      <div style="font-size:9px;color:#777;text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;font-weight:400;">mais esforço<br>pós no-show</div>
+    </div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 05</span></div>
+</div>
+
+<!-- PAGE 15: NO-SHOW LOGIC -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 05</span><span class="page-header-title">Por Que as Confirmações Falham</span><span class="page-num">15</span></div>
+  <h2 class="sh">Por Que <span class="o">Confirmações</span> Comuns Não Funcionam</h2>
+  <p class="bt">O erro mais comum é tratar a confirmação de reunião como lembrete de compromisso. Ela precisa ser uma <strong>construção de comprometimento acumulado</strong> — e isso é completamente diferente.</p>
+  <div class="ei" style="padding:12px 0;"><div style="color:#222;font-size:16px;min-width:22px;font-weight:900;">✗</div><div class="ec"><h4 style="color:#555;">Mensagem única de confirmação</h4><p>"Confirma presença amanhã?" não cria tensão, urgência nem senso de valor. É ignorado com facilidade pelo lead.</p></div></div>
+  <div class="ei" style="padding:12px 0;"><div style="color:#222;font-size:16px;min-width:22px;font-weight:900;">✗</div><div class="ec"><h4 style="color:#555;">Especialista apresentado pela 1ª vez na reunião</h4><p>Criar fricção com alguém que o lead nunca viu aumenta significativamente a probabilidade de no-show.</p></div></div>
+  <div class="ei" style="padding:12px 0;"><div style="color:#222;font-size:16px;min-width:22px;font-weight:900;">✗</div><div class="ec"><h4 style="color:#555;">Sem protocolo de resgate ativado</h4><p>Quando o lead não aparece, a maioria dos times espera passivamente. A janela real são os primeiros 5 minutos.</p></div></div>
+  <h3 class="subh">Os 4 Pilares da Cadência Anti No-Show</h3>
+  <div class="pg">
+    <div class="pc"><div class="pn">01 — AUTORIDADE</div><div class="pt" style="font-size:12px;">Apresentação prévia</div><div class="pd">Especialista apresentado antes da reunião. O lead não vai para uma conversa com um desconhecido — vai para uma reunião com uma referência.</div></div>
+    <div class="pc"><div class="pn">02 — ANTECIPAÇÃO</div><div class="pt" style="font-size:12px;">Trabalho visível</div><div class="pd">Sinais de que trabalho real está sendo feito para o lead — criando dívida de atenção que ele vai querer honrar antes da reunião.</div></div>
+    <div class="pc"><div class="pn">03 — COMPROMISSO</div><div class="pt" style="font-size:12px;">Vínculo acumulado</div><div class="pd">Cada contato reforça o vínculo assumido. Faltar começa a ter custo emocional real — percebido pelo lead, não apenas pelo time.</div></div>
+    <div class="pc"><div class="pn">04 — CONTEXTO</div><div class="pt" style="font-size:12px;">Reunião específica</div><div class="pd">A reunião foi preparada especificamente para aquele lead. Isso aumenta o senso de valor e relevância — e o custo de não aparecer.</div></div>
+  </div>
+  <div class="ib"><div class="il">Confirmar não é lembrar</div><p>É conduzir o lead até o momento da reunião com valor, tensão e relevância. Cada etapa da cadência resolve uma fraqueza específica do processo padrão — e adiciona uma camada de comprometimento acumulado.</p></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 05</span></div>
+</div>
+
+<!-- PAGE 16: 5 ETAPAS -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 05</span><span class="page-header-title">As 5 Etapas do Sistema</span><span class="page-num">16</span></div>
+  <h2 class="sh">As <span class="o">5 Etapas</span> do Sistema</h2>
+  <div class="sti"><div class="sic">1</div><div class="sib"><h4>Aterrissagem no Grupo — Imediatamente após o agendamento</h4><div class="scr"><div class="scrl">Script — T+0 min</div>"Fala, @[Lead]! Grupo criado conforme combinamos. Já adicionei o @[Especialista] — ele conduzirá nosso diagnóstico, tirará suas dúvidas e alinhará as condições para implementarmos [serviço] aí na operação. Deixo um material sobre nossa metodologia: [link]. Nos falamos amanhã às [Horário]!"</div><div class="wb"><span class="wi">⚠</span><p><strong>Erro crítico:</strong> Criar o grupo sem incluir o especialista imediatamente. Sem a apresentação antecipada, vira só mais um grupo no WhatsApp — sem peso, sem comprometimento real.</p></div></div></div>
+  <div class="sti"><div class="sic">2</div><div class="sib"><h4>Mensagem D-1 — Entre 18h e 21h do dia anterior</h4><div class="scr"><div class="scrl">Script — D-1 Noite</div>"Excelente noite! Estamos ansiosos pelo papo de amanhã às [Horário]. Hoje me reuni com o [Especialista] e colocamos o cenário de vocês em pauta. Selecionamos cases com resultados expressivos para mostrar o que funciona na prática. Até breve!"</div></div></div>
+  <div class="sti"><div class="sic">3</div><div class="sib"><h4>Manhã do Dia D + Foto do Setup — 8h30 às 9h30</h4><div class="scr"><div class="scrl">Script + Foto real obrigatória</div>"Muito bom dia, @[Lead]! Tudo pronto por aqui para o nosso bate-papo de hoje. O material do diagnóstico de vocês está finalizado. Pouco antes das [Horário] envio o link de acesso. Até já!"</div><div class="wb"><span class="wi">⚠</span><p><strong>Erro crítico:</strong> Enviar sem a foto. A mensagem de texto isolada perde mais de 60% do impacto. A imagem do especialista ao computador com o material do lead na tela é prova irrefutável de dedicação humana — impossível fingir.</p></div></div></div>
+  <div class="sti"><div class="sic">4</div><div class="sib"><h4>Envio do Link — Exatos 30 minutos antes</h4><div class="scr"><div class="scrl">Script — T-30 min</div>"Em instantes iniciamos! Segue o link da videochamada: [Link]. Já estamos aqui aguardando."</div></div></div>
+  <div class="sti"><div class="sic">5</div><div class="sib"><h4>Protocolo de Resgate — 3 minutos após horário sem resposta</h4><p style="font-size:11px;color:#888;margin-top:4px;font-weight:300;">Ação 1: SDR liga via WhatsApp no grupo. | Ação 2: Sem resposta → liga via celular/VoIP. | Ação 3: Bloqueio total → Direct do Instagram. | Imprevisto real → reagendar sem atrito. | Silêncio intencional → liberar slot e iniciar reengajamento em 30 dias.</p></div></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 05</span></div>
+</div>
+
+<!-- PAGE 17: DIAGNÓSTICO -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 06</span><span class="page-header-title">O Diagnóstico que Define Tudo</span><span class="page-num">17</span></div>
+  <h2 class="sh">O <span class="o">Diagnóstico</span> que Define Tudo</h2>
+  <p class="bt">Se existe uma etapa que separa as operações que fecham de forma consistente das que vivem em "quase vendas", é o diagnóstico. Quando bem feito, o fechamento é quase uma consequência natural.</p>
+  <div class="qb"><p>"O diagnóstico não é um pitch. É o momento de entender o problema do lead com profundidade suficiente para apresentar uma solução que ele mesmo reconhece como necessária."</p></div>
+  <h3 class="subh">Os 4 Eixos de um Diagnóstico de Alto Impacto</h3>
+  <div class="ei"><div class="en" style="font-size:22px;">01</div><div class="ec"><h4>Situação Atual</h4><p>Como está o comercial hoje? Qual o faturamento atual e a meta? Como os leads chegam? Qual a taxa de conversão? Não aceite "mais ou menos". Números concretos revelam a realidade que o lead muitas vezes prefere não encarar.</p></div></div>
+  <div class="ei"><div class="en" style="font-size:22px;">02</div><div class="ec"><h4>Dor e Impacto</h4><p>Qual o custo real do problema no faturamento, no time e no crescimento? Há quanto tempo existe? O que já foi tentado para resolver? Quanto mais o lead fala sobre a dor, mais se convence de que precisa resolvê-la.</p></div></div>
+  <div class="ei"><div class="en" style="font-size:22px;">03</div><div class="ec"><h4>Cenário Desejado</h4><p>Como seria o comercial ideal em 6 meses? O que precisaria estar funcionando que hoje não está? Quando o lead articula o futuro que quer, ele está descrevendo exatamente o que vai comprar.</p></div></div>
+  <div class="ei"><div class="en" style="font-size:22px;">04</div><div class="ec"><h4>Próximo Passo Definido</h4><p>Nunca encerre sem próximo passo claro. Quem mais precisa estar na próxima conversa? Quando apresentar a proposta? Uma reunião sem próxima ação definida é um lead esquecido esperando para entrar no limbo do pipeline.</p></div></div>
+  <div class="wb" style="margin-top:14px;"><span class="wi">⚠</span><p><strong>Regra 80/20:</strong> 80% do tempo o lead fala. 20% o especialista pergunta. Quando esse equilíbrio se inverte, o diagnóstico virou apresentação — e você perdeu a chance de entender o problema real do lead.</p></div>
+  <div class="mc-row">
+    <div class="mc"><div class="mct">Erro 01</div><div class="mcd">Falar mais do que perguntar. O diagnóstico eficaz é 80% escuta ativa.</div></div>
+    <div class="mc"><div class="mct">Erro 02</div><div class="mcd">Não mapear o tomador de decisão antes de apresentar a solução.</div></div>
+    <div class="mc"><div class="mct">Erro 03</div><div class="mcd">Apresentar a solução antes de confirmar e validar o problema com o lead.</div></div>
+  </div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 06</span></div>
+</div>
+
+<!-- PAGE 18: FOLLOW-UP + MÉTRICAS -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Capítulo 07</span><span class="page-header-title">Follow-up e Métricas</span><span class="page-num">18</span></div>
+  <h2 class="sh">Follow-up: <span class="o">Continuar</span> Sem Incomodar</h2>
+  <p class="bt">A maioria das vendas não é fechada no primeiro contato. O que acontece nos pontos de follow-up determina se a venda acontece ou se o lead some. Follow-up eficiente não é sobre quantidade — é sobre <strong>qualidade de valor entregue a cada contato.</strong></p>
+  <table class="dt"><tr><th>Timing</th><th>Ação</th><th>Objetivo</th></tr><tr><td>24h após reunião</td><td>Recapitulação da dor + case similar</td><td>Espelhar o que foi ouvido, criar reciprocidade</td></tr><tr><td>3 dias pós-proposta</td><td>Insight de mercado relevante</td><td>Mostrar que você pensa no caso específico dele</td></tr><tr><td>7 dias pós-proposta</td><td>Pergunta direta sobre a proposta</td><td>Destravamento objetivo sem pressão</td></tr><tr><td>14 dias pós-proposta</td><td>Novo ângulo ou resultado recente</td><td>Reengajamento com perspectiva nova e valor real</td></tr><tr><td>Mensagem de "quebra"</td><td>"Vou arquivar por aqui…"</td><td>Reativar procrastinadores ou encerrar com elegância</td></tr></table>
+  <h3 class="subh">As Métricas que Constroem Previsibilidade</h3>
+  <div class="pg">
+    <div class="pc"><div class="pn">Volume — Atividade</div><div class="pt" style="font-size:12px;">O que medir</div><div class="pd">Tentativas de contato por dia, contatos efetivos, follow-ups enviados. Volume baixo = problema de atividade, não de conversão ou técnica.</div></div>
+    <div class="pc"><div class="pn">Conversão — Qualidade</div><div class="pt" style="font-size:12px;">O que medir</div><div class="pd">Taxa de conexão, agendamento, show, diagnóstico para proposta e win rate. Cada taxa aponta um gargalo específico e solucionável.</div></div>
+    <div class="pc"><div class="pn">Ciclo — Velocidade</div><div class="pt" style="font-size:12px;">O que medir</div><div class="pd">Tempo de resposta ao lead novo (meta: menos de 10 min), entre diagnóstico e proposta, e tempo total de fechamento.</div></div>
+    <div class="pc"><div class="pn">Resultado — Saúde</div><div class="pt" style="font-size:12px;">O que medir</div><div class="pd">Ticket médio, churn nos primeiros 90 dias (indica qualidade da qualificação feita pelo SDR) e NPS dos fechados.</div></div>
+  </div>
+  <div class="cta-box"><p>Você sabe qual dessas métricas está mais comprometida na sua operação hoje? Em uma sessão com a Sellfy você sai com o raio-x completo e um plano de ação claro e imediato.</p><a class="cta-btn" href="https://tally.so/r/68QN9A" target="_blank">Quero Meu Diagnóstico Gratuito →</a></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Capítulo 07</span></div>
+</div>
+
+<!-- PAGE 19: O MÉTODO SELLFY -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">O Método</span><span class="page-header-title">As 8 Semanas</span><span class="page-num">19</span></div>
+  <h2 class="sh">O Método <span class="o">Sellfy</span>: As 8 Semanas</h2>
+  <p class="bt">Quando a Sellfy entra em uma operação, não chega com uma planilha genérica. Chega com um método estruturado, testado e validado em dezenas de operações de prestadores de serviço — com começo, meio, fim e objetivo claro de transformação.</p>
+  <table class="dt"><tr><th>Semana</th><th>Etapa</th><th>Entrega Principal</th></tr><tr><td style="color:var(--orange);font-weight:700;">01</td><td><strong>Diagnóstico Inicial</strong></td><td>Raio-x completo: gaps técnicos, emocionais e processuais da operação</td></tr><tr><td style="color:var(--orange);font-weight:700;">02–03</td><td><strong>Reprogramação de Mentalidade</strong></td><td>Identidade profissional, metas SMART, ritual matinal instalado</td></tr><tr><td style="color:var(--orange);font-weight:700;">03–04</td><td><strong>Rotina Carnívora</strong></td><td>Blocos de foco, cadência diária, ritos semanais no calendário</td></tr><tr><td style="color:var(--orange);font-weight:700;">05–06</td><td><strong>Desenvolvimento de Habilidades</strong></td><td>Pitch consultivo, manejo de objeções, follow-up com valor real</td></tr><tr><td style="color:var(--orange);font-weight:700;">07</td><td><strong>Kit do Gestor</strong></td><td>Dashboard, banco de calls, modelos de follow-up, roteiro de coaching</td></tr><tr><td style="color:var(--orange);font-weight:700;">08</td><td><strong>Cultura e Coaching Contínuo</strong></td><td>Alta performance como novo normal — não como exceção momentânea</td></tr></table>
+  <h3 class="subh">Os 3 Pilares do Método</h3>
+  <div class="sti"><div class="sic">D</div><div class="sib"><h4>Diagnóstico Sistêmico</h4><p>Entender como o time funciona hoje — técnica, emoção e processo. Sem diagnóstico real, qualquer intervenção é chute. É a base de tudo o que vem depois e define onde o esforço vai ser aplicado.</p></div></div>
+  <div class="sti"><div class="sic">R</div><div class="sib"><h4>Ritos de Alta Performance</h4><p>Ritmos e encontros no calendário que alinham contexto, clareza, rotina e feedback semana após semana. Rito com consistência é cultura. Cultura gera previsibilidade real e mensurável.</p></div></div>
+  <div class="sti"><div class="sic">P</div><div class="sib"><h4>Playbooks Vivos</h4><p>Documentar o que funciona e atualizar o que muda. O que está só na cabeça das pessoas não escala e não sobrevive à saída de um bom vendedor. O que está documentado e treinado, sim.</p></div></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>O Método</span></div>
+</div>
+
+<!-- PAGE 20: CHECKLIST -->
+<div class="page page-content">
+  <div class="page-header"><span class="page-header-chapter">Checklist</span><span class="page-header-title">Avalie Sua Operação Agora</span><span class="page-num">20</span></div>
+  <h2 class="sh">Checklist de <span class="o">Ativação</span></h2>
+  <p class="bt" style="font-size:11px;color:#555;">Para cada item marque: ✅ Temos funcionando de verdade | ⚠ Temos mas não funciona | ❌ Não temos ainda</p>
+  <h3 class="subh">Fundação Comercial</h3>
+  <ul class="cl"><li>ICP documentado, alinhado com o time e aplicado na qualificação de leads</li><li>Funil com etapas claras, critérios de avanço e tempo máximo por etapa definido</li><li>CRM em uso ativo pelo time inteiro — não apenas instalado e esquecido</li><li>Métricas de volume, conversão e ciclo acompanhadas toda semana pelo gestor</li></ul>
+  <h3 class="subh">Prospecção e SDR</h3>
+  <ul class="cl"><li>Cadência de prospecção definida e seguida por todos do time sem exceção</li><li>Scripts de abordagem testados, documentados e atualizados periodicamente</li><li>Meta de agendamentos semanal definida e acompanhada por SDR individualmente</li><li>Tempo de resposta ao lead novo abaixo de 10 minutos — mesmo fora do horário comercial</li></ul>
+  <h3 class="subh">Reuniões e No-Show</h3>
+  <ul class="cl"><li>Cadência anti no-show ativa com as 5 etapas completas em toda reunião agendada</li><li>Especialista apresentado ao lead antes da reunião acontecer — nunca na hora</li><li>Foto real do setup enviada na manhã do dia D — nunca apenas texto</li><li>Protocolo de resgate imediato ativado nos primeiros 3 minutos sem resposta</li></ul>
+  <h3 class="subh">Gestão e Ritos</h3>
+  <ul class="cl"><li>Daily Carnívoro acontecendo toda segunda-feira sem exceção no calendário</li><li>Clínica de Call com feedback estruturado toda quarta-feira sem cancelamento</li><li>Pipeline Review com decisões concretas toda sexta-feira — não apenas revisão passiva</li><li>Dashboard de performance visível para todo o time diariamente em tempo real</li></ul>
+  <div class="hr" style="margin-top:14px;"><div class="hrn" style="font-size:20px;min-width:48px;">❌&gt;✅</div><div class="hrt">Se você marcou mais ❌ do que ✅, <strong>sua operação está deixando dinheiro na mesa todo mês</strong> — não por falta de esforço, mas por falta de sistema estruturado e consistente.</div></div>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>Checklist</span></div>
+</div>
+
+<!-- PAGE 21: CLOSING -->
+<div class="page page-closing">
+  <div class="section-label">Sua Decisão a Partir de Agora</div>
+  <h2 class="sh" style="font-size:42px;text-align:center;margin-bottom:10px;">O Próximo<br><span class="o">Passo</span> é Seu</h2>
+  <p class="bt" style="text-align:center;max-width:480px;font-size:12px;">Se você chegou até aqui, alguma coisa neste material tocou num nervo exposto. Você já entendeu uma coisa que muita gente demora anos para aceitar:</p>
+  <div class="qb" style="width:100%;margin:16px 0;text-align:left;"><p>"Se eu não mudar a forma como faço a gestão de vendas, nada muda de verdade no meu resultado."</p></div>
+  <div style="width:100%;margin:4px 0 20px;">
+    <div class="cq-item"><p>"Não queremos vendedores robôs. Queremos operadores conscientes."</p><span>Gente que sabe por que faz, como faz e o efeito do que faz no resultado da empresa.</span></div>
+    <div class="cq-item"><p>"A transformação não vem do grito. Vem da clareza."</p><span>Quando o time entende o jogo, a cobrança vira natural — sem pressão, sem estresse desnecessário.</span></div>
+    <div class="cq-item"><p>"Motivação sobe e desce. Método fica."</p><span>Um gestor forma operadores com método consistente, não com palestras motivacionais momentâneas.</span></div>
+  </div>
+  <div style="display:flex;gap:12px;width:100%;">
+    <div style="flex:1;background:#090c0f;border:1px solid #1e2328;padding:18px;border-radius:var(--radius);text-align:center;">
+      <div style="font-size:9px;color:var(--orange);letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Quero implementar sozinho</div>
+      <p style="font-size:11px;color:#777;line-height:1.55;font-weight:300;margin-bottom:12px;">Use o checklist, implante um rito por vez, meça, corrija. O mapa está neste material.</p>
+      <a href="https://tally.so/r/68QN9A" target="_blank" style="display:inline-block;background:transparent;color:var(--orange);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:9px 20px;text-decoration:none;border:1px solid var(--orange);border-radius:var(--radius-sm);">Fazer Diagnóstico →</a>
+    </div>
+    <div style="flex:1;background:var(--orange);padding:18px;border-radius:var(--radius);text-align:center;">
+      <div style="font-size:9px;color:rgba(255,255,255,0.7);letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Quero implementar com a Sellfy</div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.88);line-height:1.55;font-weight:300;margin-bottom:12px;">Diagnóstico + processo + acompanhamento real até o resultado aparecer com consistência.</p>
+      <a href="https://wa.me/5585899897730" target="_blank" style="display:inline-block;background:#000;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:9px 20px;text-decoration:none;border-radius:var(--radius-sm);">Falar com a Sellfy →</a>
+    </div>
+  </div>
+  <img src="data:image/png;base64,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" alt="Sellfy Group" style="width:58px;margin-top:22px;opacity:0.4;border-radius:var(--radius-sm);">
+  <p style="font-size:9px;color:#2a2a2a;margin-top:10px;letter-spacing:0.15em;text-transform:uppercase;font-weight:400;">sellfy.com.br — Implementação Comercial para Prestadores de Serviço</p>
+  <div class="pf"><span>Sellfy Group</span><div class="fdot"></div><span>sellfy.com.br</span></div>
+</div>
+
+</div>
+<div id="pdf-progress" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(12,15,18,0.92);display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;">
+  <img src="data:image/png;base64,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" style="width:64px;border-radius:6px;opacity:0.8;">
+  <div style="font-family:'Poppins',sans-serif;font-size:14px;color:#FE4F18;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;" id="progress-text">Gerando PDF...</div>
+  <div style="width:240px;height:4px;background:#1a1e22;border-radius:2px;overflow:hidden;">
+    <div id="progress-bar" style="height:100%;background:#FE4F18;border-radius:2px;width:0%;transition:width 0.3s ease;"></div>
+  </div>
+  <div style="font-family:'Poppins',sans-serif;font-size:11px;color:#555;font-weight:300;">Aguarde alguns segundos...</div>
+</div>
+
+<script>
+async function downloadPDF() {
+  const btn = document.getElementById('dlbtn');
+  const overlay = document.getElementById('pdf-progress');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+
+  btn.disabled = true;
+  btn.textContent = 'Gerando...';
+  overlay.style.display = 'flex';
+
+  const { jsPDF } = window.jspdf;
+  const pages = document.querySelectorAll('.page');
+  const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  const totalPages = pages.length;
+
+  for (let i = 0; i < totalPages; i++) {
+    const page = pages[i];
+    const pct = Math.round(((i) / totalPages) * 100);
+    progressBar.style.width = pct + '%';
+    progressText.textContent = `Renderizando página ${i + 1} de ${totalPages}...`;
+
+    const canvas = await html2canvas(page, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: '#0f1215',
+      logging: false,
+      width: page.offsetWidth,
+      height: page.offsetHeight,
+      windowWidth: page.offsetWidth,
+    });
+
+    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    const pdfW = pdf.internal.pageSize.getWidth();
+    const pdfH = pdf.internal.pageSize.getHeight();
+
+    if (i > 0) pdf.addPage();
+    pdf.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
+  }
+
+  progressBar.style.width = '100%';
+  progressText.textContent = 'Finalizando download...';
+
+  setTimeout(() => {
+    pdf.save('Sellfy_Playbook_Comercial.pdf');
+    overlay.style.display = 'none';
+    btn.disabled = false;
+    btn.textContent = '⬇ Baixar PDF';
+  }, 600);
+}
+</script>
+</body>
+</html>
